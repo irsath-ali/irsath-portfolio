@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M.L. Irsath Ali — Data Scientist · Educator · Founder</title>
+<meta name="description" content="Senior Data & AI Scientist, Lecturer, and Founder of NexAI. Available for workshops, corporate training, and guest lectures across Sri Lanka and the Gulf.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1C33;
+    --navy-light: #112440;
+    --teal: #00C9A7;
+    --teal-dim: #009E84;
+    --gold: #F5A623;
+    --gold-dim: #C8831A;
+    --white: #FFFFFF;
+    --off-white: #F4F6F9;
+    --text-main: #1A2B42;
+    --text-muted: #556070;
+    --text-light: #8A96A3;
+    --border: rgba(0,0,0,0.08);
+    --card-shadow: 0 4px 24px rgba(11,28,51,0.08);
+    --card-hover: 0 8px 40px rgba(11,28,51,0.14);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(11, 28, 51, 0.97);
+    backdrop-filter: blur(12px);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-logo span { color: var(--teal); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+
+  .nav-cta {
+    background: var(--teal);
+    color: var(--navy) !important;
+    padding: 0.45rem 1.1rem;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    color: var(--navy) !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: #00b096 !important; color: var(--navy) !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,201,167,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  #hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: 20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(245,166,35,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0,201,167,0.1);
+    border: 1px solid rgba(0,201,167,0.25);
+    color: var(--teal);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name .accent { color: var(--teal); }
+
+  .hero-titles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title-tag {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.75);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-tagline strong {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: var(--navy);
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .btn-primary:hover {
+    background: #00b096;
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.85);
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    transform: translateY(-1px);
+  }
+
+  /* HERO PHOTO */
+  .hero-photo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-photo-frame {
+    width: 280px;
+    height: 340px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 2px dashed rgba(0,201,167,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.85rem;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Replace .hero-photo-frame with this when you have a photo:
+  .hero-photo-frame {
+    width: 280px; height: 340px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 3px solid rgba(0,201,167,0.4);
+  }
+  .hero-photo-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  */
+
+  .photo-icon {
+    width: 64px; height: 64px;
+    background: rgba(0,201,167,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--navy-light);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.8rem 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--teal);
+    display: block;
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 80px 5%;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-dim);
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .section-divider {
+    width: 48px;
+    height: 3px;
+    background: var(--teal);
+    border-radius: 2px;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ABOUT */
+  #about { background: var(--off-white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .about-text p strong {
+    color: var(--text-main);
+    font-weight: 600;
+  }
+
+  .credentials-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .credentials-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .cred-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+  }
+
+  .cred-dot.gold { background: var(--gold); }
+
+  /* WHAT I DO */
+  #whatido { background: var(--white); }
+
+  .whatido-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .whatido-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .whatido-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--teal);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s;
+  }
+
+  .whatido-card:hover { box-shadow: var(--card-hover); transform: translateY(-3px); }
+  .whatido-card:hover::before { transform: scaleY(1); }
+
+  .card-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .icon-teal { background: rgba(0,201,167,0.1); }
+  .icon-gold { background: rgba(245,166,35,0.1); }
+  .icon-blue { background: rgba(23,92,211,0.1); }
+  .icon-purple { background: rgba(123,66,246,0.1); }
+
+  .whatido-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+  }
+
+  .whatido-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* EVENTS */
+  #events { background: var(--off-white); }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .event-card {
+    background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s;
+  }
+
+  .event-card:hover {
+    box-shadow: var(--card-hover);
+    transform: translateY(-3px);
+  }
+
+  .event-poster {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 1.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* To use your own poster image, replace .event-poster background with:
+     background: url('images/your-poster.jpg') center/cover no-repeat;
+     and remove the flex/text content */
+
+  .event-poster-icon { font-size: 2rem; opacity: 0.4; }
+
+  .event-poster .upcoming-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+  }
+
+  .event-poster .past-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+  }
+
+  .event-info {
+    padding: 1.25rem;
+  }
+
+  .event-info h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+  }
+
+  .event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .event-tag {
+    font-size: 0.75rem;
+    color: var(--teal-dim);
+    background: rgba(0,201,167,0.08);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .event-date {
+    font-size: 0.78rem;
+    color: var(--text-light);
+  }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--navy); }
+
+  #testimonials .section-label { color: var(--teal); }
+  #testimonials .section-title { color: var(--white); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .testimonial-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 1.75rem;
+    transition: all 0.3s;
+  }
+
+  .testimonial-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(0,201,167,0.2);
+  }
+
+  .quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--teal);
+    line-height: 0.7;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+  }
+
+  .testimonial-text {
+    font-size: 0.93rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .author-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: rgba(0,201,167,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--teal);
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .author-inst {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* APPRECIATION */
+  #appreciation { background: var(--white); }
+
+  .appreciation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .appreciation-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .appreciation-card:hover {
+    box-shadow: var(--card-hover);
+    transform: translateY(-2px);
+  }
+
+  .appreciation-thumb {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(135deg, #f0f4f8 0%, #dde4ed 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  /* Replace .appreciation-thumb with img tag when you have the actual file:
+  <img src="images/letter-nibm.jpg" alt="Appreciation letter from NIBM" style="width:100%;height:160px;object-fit:cover"> */
+
+  .appreciation-thumb-icon { font-size: 2rem; opacity: 0.35; }
+
+  .appreciation-info {
+    padding: 0.9rem 1rem;
+  }
+
+  .appreciation-info h4 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.2rem;
+  }
+
+  .appreciation-info span {
+    font-size: 0.78rem;
+    color: var(--text-light);
+  }
+
+  /* TEACHING */
+  #teaching { background: var(--off-white); }
+
+  .teaching-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .teaching-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 1.75rem;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    transition: all 0.3s;
+  }
+
+  .teaching-card:hover {
+    box-shadow: var(--card-hover);
+    transform: translateY(-2px);
+  }
+
+  .inst-logo {
+    width: 52px; height: 52px;
+    border-radius: 10px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--teal);
+    flex-shrink: 0;
+  }
+
+  .teaching-details h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+  }
+
+  .teaching-details .inst-name {
+    font-size: 0.82rem;
+    color: var(--teal-dim);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+
+  .teaching-details p {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* INVITE ME */
+  #invite {
+    background: linear-gradient(135deg, var(--navy) 0%, #0e2340 60%, #0a1e35 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #invite::before {
+    content: '';
+    position: absolute;
+    top: -150px; right: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,201,167,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  #invite .section-label { color: var(--teal); }
+  #invite .section-title { color: var(--white); }
+  #invite .section-divider { background: var(--gold); }
+
+  .invite-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .invite-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .invite-offerings {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .invite-offerings li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .offer-check {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: rgba(0,201,167,0.15);
+    border: 1px solid rgba(0,201,167,0.3);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    font-size: 0.65rem;
+    color: var(--teal);
+  }
+
+  .invite-contact-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .invite-contact-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .invite-contact-box p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1.75rem;
+    line-height: 1.6;
+  }
+
+  .whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: #25D366;
+    color: white;
+    padding: 0.85rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    margin-bottom: 1.25rem;
+    width: 100%;
+  }
+
+  .whatsapp-btn:hover {
+    background: #1ebe5a;
+    transform: translateY(-1px);
+  }
+
+  .whatsapp-icon {
+    width: 22px; height: 22px;
+  }
+
+  .invite-email {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0.2rem;
+  }
+
+  .invite-email a {
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .invite-email a:hover { text-decoration: underline; }
+
+  .invite-location {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* CONNECT */
+  #connect { background: var(--off-white); }
+
+  .connect-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .connect-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .connect-card:hover {
+    box-shadow: var(--card-hover);
+    transform: translateY(-3px);
+    border-color: transparent;
+  }
+
+  .connect-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+  }
+
+  .connect-card .link-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .connect-card .link-sub {
+    font-size: 0.74rem;
+    color: var(--text-light);
+  }
+
+  .bg-yt { background: rgba(255,0,0,0.08); }
+  .bg-gh { background: rgba(36,41,47,0.08); }
+  .bg-li { background: rgba(0,119,181,0.08); }
+  .bg-nx { background: rgba(0,201,167,0.1); }
+  .bg-em { background: rgba(245,166,35,0.1); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 2.5rem 5%;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  footer .footer-logo span { color: var(--teal); }
+
+  footer p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.7;
+  }
+
+  footer a {
+    color: var(--teal);
+    text-decoration: none;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: var(--navy);
+      padding: 1.5rem 5%;
+      gap: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-titles { justify-content: center; }
+    .hero-tagline { margin: 0 auto 2rem; }
+    .hero-btns { justify-content: center; }
+    .hero-photo-wrap { order: -1; }
+    .hero-photo-frame { width: 200px; height: 240px; }
+
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    .invite-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    section { padding: 60px 5%; }
+  }
+
+  /* SCROLL ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Irsath<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#invite" class="nav-cta">Invite Me</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Based in Sri Lanka · Available Globally</div>
+      <h1 class="hero-name">M.L. Irsath <span class="accent">Ali</span></h1>
+      <div class="hero-titles">
+        <span class="hero-title-tag">Senior Data & AI Scientist</span>
+        <span class="hero-title-tag">Visiting Lecturer · NIBM & IIT</span>
+        <span class="hero-title-tag">Founder · NexAI</span>
+        <span class="hero-title-tag">Justice of Peace</span>
+      </div>
+      <p class="hero-tagline">
+        Building <strong>AI systems</strong> that power Fortune 500 supply chains. 
+        Teaching the next generation of data professionals across Sri Lanka. 
+        Bridging the gap between enterprise AI and community education.
+      </p>
+      <div class="hero-btns">
+        <a href="#invite" class="btn-primary">Invite Me to Speak ↓</a>
+        <a href="#events" class="btn-outline">See My Work</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <div class="photo-icon">👤</div>
+        <span>Add your photo here<br><small>Replace this block with an &lt;img&gt; tag</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num">500+</span>
+      <span class="stat-label">Students Trained</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">10+</span>
+      <span class="stat-label">Years in Data & AI</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Institutions Lectured</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2</span>
+      <span class="stat-label">Countries · Growing</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <p class="section-label">About Me</p>
+        <h2 class="section-title">Practitioner. Educator.<br>Community Builder.</h2>
+        <div class="section-divider"></div>
+        <p>
+          I'm a <strong>Senior Data & AI Scientist</strong> at Sysco Labs (part of Sysco Corporation — the world's largest food distribution company), where I build ML systems for demand forecasting, out-of-stock pattern recognition, and supply chain optimisation at enterprise scale.
+        </p>
+        <p>
+          Beyond my corporate work, I'm deeply committed to <strong>democratising AI education</strong> in Sri Lanka. As a Visiting Lecturer at NIBM and IIT Sri Lanka, and through NexAI — my AI-native education and research platform — I deliver hands-on training that bridges the gap between theory and real industry practice.
+        </p>
+        <p>
+          I'm based in Akkaraipattu, Eastern Province, with roots in Colombo — and I work with institutions and organisations across Sri Lanka and the Gulf.
+        </p>
+      </div>
+      <div class="fade-up">
+        <p class="section-label" style="margin-bottom:1rem">Credentials & Roles</p>
+        <ul class="credentials-list">
+          <li><span class="cred-dot"></span><span><strong>Sr. Data & AI Scientist</strong> — Sysco Labs Pvt. Ltd., Colombo</span></li>
+          <li><span class="cred-dot"></span><span><strong>Visiting Lecturer</strong> — NIBM Sri Lanka</span></li>
+          <li><span class="cred-dot"></span><span><strong>Visiting Lecturer</strong> — IIT Sri Lanka</span></li>
+          <li><span class="cred-dot"></span><span><strong>Founder & Director</strong> — NexAI (nexai.lk)</span></li>
+          <li><span class="cred-dot gold"></span><span><strong>Justice of Peace</strong> — Sri Lanka</span></li>
+          <li><span class="cred-dot gold"></span><span><strong>Sworn Translator</strong> (Sinhala / Tamil / English)</span></li>
+          <li><span class="cred-dot"></span><span>Prior roles: NDB Bank · FPT Software Vietnam · Octave Sri Lanka</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I DO -->
+<section id="whatido">
+  <div class="section-inner">
+    <p class="section-label">What I Do</p>
+    <h2 class="section-title">Where I Spend My Energy</h2>
+    <div class="section-divider"></div>
+    <div class="whatido-grid">
+      <div class="whatido-card fade-up">
+        <div class="card-icon icon-teal">🤖</div>
+        <h3>Enterprise AI & ML</h3>
+        <p>Building production ML pipelines at Sysco Labs — demand forecasting, supply chain analytics, and AI governance across Fortune 500 operations.</p>
+      </div>
+      <div class="whatido-card fade-up">
+        <div class="card-icon icon-gold">🎓</div>
+        <h3>Academic Lecturing</h3>
+        <p>Delivering courses in Data Science, Business Intelligence, NoSQL Databases, and Applied ML at NIBM and IIT Sri Lanka.</p>
+      </div>
+      <div class="whatido-card fade-up">
+        <div class="card-icon icon-blue">🚀</div>
+        <h3>NexAI — Education Platform</h3>
+        <p>Running Sri Lanka's AI-native education platform with live cohort courses, free YouTube content, and corporate training programmes.</p>
+      </div>
+      <div class="whatido-card fade-up">
+        <div class="card-icon icon-purple">🏢</div>
+        <h3>NexAI Labs — Consulting</h3>
+        <p>Implementing AI solutions for SMEs in the Eastern Province and beyond — practical, business-first automation and analytics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="section-inner">
+    <p class="section-label">Workshops & Events</p>
+    <h2 class="section-title">On Stage & In the Classroom</h2>
+    <div class="section-divider"></div>
+    <div class="events-grid">
+
+      <!-- EVENT CARD TEMPLATE — duplicate this block to add more events -->
+      <div class="event-card fade-up">
+        <div class="event-poster">
+          <div class="event-poster-icon">📸</div>
+          <span style="font-size:0.78rem">Add poster image here<br>Replace background with your image URL</span>
+          <span class="past-badge">Past</span>
+        </div>
+        <div class="event-info">
+          <h3>ML Pipeline Workshop — Retail Demand Forecasting</h3>
+          <p style="font-size:0.83rem;color:var(--text-muted);margin-top:0.3rem">Hands-on workshop covering RandomForestRegressor pipelines, Git workflow, and model evaluation with NIBM final-year students.</p>
+          <div class="event-meta">
+            <span class="event-tag">NIBM</span>
+            <span class="event-tag">Machine Learning</span>
+            <span class="event-date">2026 · Colombo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card fade-up">
+        <div class="event-poster">
+          <div class="event-poster-icon">📸</div>
+          <span style="font-size:0.78rem">Add poster image here</span>
+          <span class="past-badge">Past</span>
+        </div>
+        <div class="event-info">
+          <h3>Power BI for QS & Construction Professionals</h3>
+          <p style="font-size:0.83rem;color:var(--text-muted);margin-top:0.3rem">Live 12-week cohort for Quantity Surveyors and construction professionals in Sri Lanka and the Gulf, delivered via Zoom.</p>
+          <div class="event-meta">
+            <span class="event-tag">NexAI Academy</span>
+            <span class="event-tag">Power BI</span>
+            <span class="event-date">2026 · Online (Gulf-timed)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card fade-up">
+        <div class="event-poster" style="background: linear-gradient(135deg, #0B2A1A 0%, #0f3d25 100%);">
+          <div class="event-poster-icon">🎯</div>
+          <span style="font-size:0.78rem">Add poster image here</span>
+          <span class="upcoming-badge">Upcoming</span>
+        </div>
+        <div class="event-info">
+          <h3>Your Next Event Title Here</h3>
+          <p style="font-size:0.83rem;color:var(--text-muted);margin-top:0.3rem">Add a short description of the upcoming workshop, webinar, or training session here.</p>
+          <div class="event-meta">
+            <span class="event-tag">Institution / Platform</span>
+            <span class="event-tag">Topic</span>
+            <span class="event-date">Date · Location</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <p class="section-label">Student Testimonials</p>
+    <h2 class="section-title">What People Say</h2>
+    <div class="section-divider"></div>
+    <div class="testimonials-grid">
+
+      <!-- TESTIMONIAL TEMPLATE — add real ones here -->
+      <div class="testimonial-card fade-up">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">Add a real testimonial from one of your students or workshop attendees here. Replace this placeholder with their actual words.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AB</div>
+          <div>
+            <p class="author-name">Student Name</p>
+            <p class="author-inst">Institution · Year</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-up">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">Add another testimonial here. These are powerful — collect them from WhatsApp messages, emails, or LinkedIn comments after your workshops.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">CD</div>
+          <div>
+            <p class="author-name">Student Name</p>
+            <p class="author-inst">Institution · Year</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-up">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">A third testimonial slot. Once you have real quotes, these cards will be one of the most powerful sections on your site.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">EF</div>
+          <div>
+            <p class="author-name">Student Name</p>
+            <p class="author-inst">Institution · Year</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- APPRECIATION -->
+<section id="appreciation">
+  <div class="section-inner">
+    <p class="section-label">Recognition</p>
+    <h2 class="section-title">Appreciation & Recognition</h2>
+    <div class="section-divider"></div>
+    <div class="appreciation-grid">
+
+      <!-- Add your scanned letters/certificates as image files in your repo -->
+      <div class="appreciation-card fade-up">
+        <div class="appreciation-thumb">
+          <div class="appreciation-thumb-icon">📜</div>
+          <span>Add scanned letter or certificate image here</span>
+        </div>
+        <div class="appreciation-info">
+          <h4>Appreciation Letter</h4>
+          <span>Institution Name · Year</span>
+        </div>
+      </div>
+
+      <div class="appreciation-card fade-up">
+        <div class="appreciation-thumb">
+          <div class="appreciation-thumb-icon">🏆</div>
+          <span>Add certificate or award image here</span>
+        </div>
+        <div class="appreciation-info">
+          <h4>Certificate / Award</h4>
+          <span>Organisation · Year</span>
+        </div>
+      </div>
+
+      <div class="appreciation-card fade-up">
+        <div class="appreciation-thumb">
+          <div class="appreciation-thumb-icon">📜</div>
+          <span>Add image here</span>
+        </div>
+        <div class="appreciation-info">
+          <h4>Recognition</h4>
+          <span>Institution · Year</span>
+        </div>
+      </div>
+
+      <div class="appreciation-card fade-up">
+        <div class="appreciation-thumb">
+          <div class="appreciation-thumb-icon">📸</div>
+          <span>Workshop / event photo</span>
+        </div>
+        <div class="appreciation-info">
+          <h4>Event Photo</h4>
+          <span>Event Name · Year</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="section-inner">
+    <p class="section-label">Academic Work</p>
+    <h2 class="section-title">Teaching & Lecturing</h2>
+    <div class="section-divider"></div>
+    <div class="teaching-grid">
+
+      <div class="teaching-card fade-up">
+        <div class="inst-logo">NB</div>
+        <div class="teaching-details">
+          <h3>Visiting Lecturer</h3>
+          <p class="inst-name">NIBM Sri Lanka</p>
+          <p>Delivering modules in Data Science, Business Intelligence, and Applied Machine Learning for HNDD and degree-level students.</p>
+        </div>
+      </div>
+
+      <div class="teaching-card fade-up">
+        <div class="inst-logo">IIT</div>
+        <div class="teaching-details">
+          <h3>Visiting Lecturer</h3>
+          <p class="inst-name">IIT Sri Lanka</p>
+          <p>Teaching applied AI and data engineering concepts to undergraduate students at the Informatics Institute of Technology.</p>
+        </div>
+      </div>
+
+      <div class="teaching-card fade-up">
+        <div class="inst-logo" style="background:rgba(0,201,167,0.1);color:var(--teal-dim)">NX</div>
+        <div class="teaching-details">
+          <h3>Founder & Lead Instructor</h3>
+          <p class="inst-name">NexAI Academy</p>
+          <p>Live cohort courses in Power BI, Python for Data Science, NoSQL, and Tableau — targeting Sri Lankan professionals and the Gulf market.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INVITE ME -->
+<section id="invite">
+  <div class="section-inner">
+    <div class="invite-grid">
+      <div class="fade-up">
+        <p class="section-label">Invite Me</p>
+        <h2 class="section-title">Let's Work Together</h2>
+        <div class="section-divider"></div>
+        <p class="invite-desc">
+          I'm available for guest lectures, corporate training, university workshops, panel discussions, and industry events — across Sri Lanka, the Gulf, and online. Whether you're a university faculty coordinator, a corporate L&D team, or an industry association, I'd love to bring practical, real-world AI and data science content to your audience.
+        </p>
+        <ul class="invite-offerings">
+          <li><span class="offer-check">✓</span><span>Corporate AI & Data Science Training (half-day / full-day)</span></li>
+          <li><span class="offer-check">✓</span><span>University Guest Lectures & Final Year Project Mentoring</span></li>
+          <li><span class="offer-check">✓</span><span>Power BI, Python, Machine Learning Workshops</span></li>
+          <li><span class="offer-check">✓</span><span>Panel Discussions & Industry Talks on AI Adoption</span></li>
+          <li><span class="offer-check">✓</span><span>Webinars for Professional Associations (online, Gulf-timed available)</span></li>
+          <li><span class="offer-check">✓</span><span>School & A/L Career Guidance Sessions on Data Careers</span></li>
+        </ul>
+      </div>
+
+      <div class="invite-contact-box fade-up">
+        <h3>Get in Touch</h3>
+        <p>Send a WhatsApp message or email to discuss your event. I typically respond within 24 hours.</p>
+
+        <!-- REPLACE +94XXXXXXXXX with your actual WhatsApp number -->
+        <a href="https://wa.me/94XXXXXXXXX?text=Hi%20Irsath%2C%20I%20would%20like%20to%20invite%20you%20for%20a%20workshop%2Fevent." class="whatsapp-btn" target="_blank" rel="noopener">
+          <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.509 5.829L.057 23.18a.75.75 0 00.917.899l5.488-1.437A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.725 9.725 0 01-5.029-1.396.75.75 0 00-.574-.077l-3.625.949.969-3.571a.75.75 0 00-.084-.589A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+          </svg>
+          Message on WhatsApp
+        </a>
+
+        <p class="invite-email">Or email: <a href="mailto:irsath@nexai.lk">irsath@nexai.lk</a></p>
+        <p class="invite-location">📍 Sri Lanka · Available for Gulf & Online engagements</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section id="connect">
+  <div class="section-inner">
+    <p class="section-label">Connect</p>
+    <h2 class="section-title">Find Me Online</h2>
+    <div class="section-divider"></div>
+    <div class="connect-links">
+
+      <!-- REPLACE all href="#" with your actual URLs -->
+      <a href="https://youtube.com/@IrsathAliNexAI" class="connect-card" target="_blank" rel="noopener">
+        <div class="connect-icon bg-yt">▶️</div>
+        <span class="link-label">YouTube</span>
+        <span class="link-sub">@IrsathAliNexAI</span>
+      </a>
+
+      <a href="https://github.com/YOUR-USERNAME" class="connect-card" target="_blank" rel="noopener">
+        <div class="connect-icon bg-gh">💻</div>
+        <span class="link-label">GitHub</span>
+        <span class="link-sub">AI & ML Projects</span>
+      </a>
+
+      <a href="https://linkedin.com/in/YOUR-LINKEDIN" class="connect-card" target="_blank" rel="noopener">
+        <div class="connect-icon bg-li">💼</div>
+        <span class="link-label">LinkedIn</span>
+        <span class="link-sub">Professional Profile</span>
+      </a>
+
+      <a href="https://nexai.lk" class="connect-card" target="_blank" rel="noopener">
+        <div class="connect-icon bg-nx">🌐</div>
+        <span class="link-label">NexAI</span>
+        <span class="link-sub">nexai.lk</span>
+      </a>
+
+      <a href="mailto:irsath@nexai.lk" class="connect-card">
+        <div class="connect-icon bg-em">✉️</div>
+        <span class="link-label">Email</span>
+        <span class="link-sub">irsath@nexai.lk</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">Irsath<span>.</span></p>
+  <p>M.L. Irsath Ali · Senior Data & AI Scientist · Founder, <a href="https://nexai.lk" target="_blank">NexAI</a></p>
+  <p style="margin-top:0.4rem">Akkaraipattu, Eastern Province, Sri Lanka</p>
+</footer>
+
+<script>
+  // Mobile nav
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
