@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Oriented Data Science Workshop — NIBM | Irsath Ali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1C33; --teal: #00C9A7; --teal-dim: #009E84;
+    --gold: #F5A623; --white: #FFFFFF; --off-white: #F4F6F9;
+    --text-main: #1A2B42; --text-muted: #556070; --text-light: #8A96A3;
+    --border: rgba(0,0,0,0.08); --card-shadow: 0 4px 24px rgba(11,28,51,0.08);
+    --card-hover: 0 8px 40px rgba(11,28,51,0.14);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text-main); line-height: 1.6; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(11,28,51,0.97); backdrop-filter: blur(12px); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); text-decoration: none; }
+  .nav-logo span { color: var(--teal); }
+  .nav-back { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .nav-back:hover { color: var(--teal); }
+  .event-hero { background: var(--navy); padding: 120px 5% 60px; position: relative; overflow: hidden; }
+  .event-hero::before { content: ''; position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,201,167,0.07) 0%, transparent 70%); }
+  .event-hero-inner { max-width: 900px; margin: 0 auto; }
+  .back-link { display: inline-flex; align-items: center; gap: 0.4rem; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.82rem; margin-bottom: 1.5rem; transition: color 0.2s; }
+  .back-link:hover { color: var(--teal); }
+  .event-tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+  .etag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 4px; }
+  .etag-teal { background: rgba(0,201,167,0.12); color: var(--teal); }
+  .etag-gold { background: rgba(245,166,35,0.12); color: var(--gold); }
+  .etag-blue { background: rgba(23,92,211,0.12); color: #6098f2; }
+  .event-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,4vw,3rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 1rem; }
+  .event-meta-row { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; }
+  .meta-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+  .meta-item strong { color: rgba(255,255,255,0.8); }
+  .content-section { padding: 60px 5%; }
+  .content-inner { max-width: 900px; margin: 0 auto; }
+  .poster-wrap { margin-bottom: 3rem; }
+  .poster-wrap img { width: 100%; max-width: 480px; border-radius: 16px; box-shadow: var(--card-hover); display: block; cursor: pointer; }
+  .section-heading { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem; }
+  .divider { width: 36px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 1.5rem; }
+  .description { font-size: 1rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 1.5rem; }
+  .description strong { color: var(--text-main); }
+
+  /* HIGHLIGHTS */
+  .highlights { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
+  .highlights li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.92rem; color: var(--text-muted); }
+  .highlight-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); margin-top: 0.45rem; flex-shrink: 0; }
+
+  /* STATS ROW */
+  .stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 3rem; }
+  .stat-box { background: var(--off-white); border-radius: 12px; padding: 1.25rem; text-align: center; border: 1px solid var(--border); }
+  .stat-box .num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--teal); display: block; }
+  .stat-box .lbl { font-size: 0.78rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; display: block; }
+
+  /* COLLABORATION BADGE */
+  .collab-badge { display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(0,201,167,0.06); border: 1px solid rgba(0,201,167,0.15); border-radius: 10px; padding: 0.75rem 1.25rem; margin-bottom: 2.5rem; }
+  .collab-badge span { font-size: 0.85rem; color: var(--text-muted); }
+  .collab-badge strong { color: var(--text-main); }
+
+  /* GALLERY */
+  .gallery-section { background: var(--off-white); padding: 60px 5%; }
+  .gallery-inner { max-width: 900px; margin: 0 auto; }
+  .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .photo-grid img { width: 100%; height: 210px; object-fit: cover; border-radius: 12px; box-shadow: var(--card-shadow); cursor: pointer; transition: all 0.3s; }
+  .photo-grid img:hover { transform: scale(1.02); box-shadow: var(--card-hover); }
+
+  /* APPRECIATION PLACEHOLDER */
+  .appreciation-section { padding: 60px 5%; }
+  .appreciation-inner { max-width: 900px; margin: 0 auto; }
+  .letter-placeholder { background: var(--off-white); border: 2px dashed rgba(0,201,167,0.25); border-radius: 14px; padding: 2.5rem; text-align: center; max-width: 500px; }
+  .letter-placeholder p { font-size: 0.88rem; color: var(--text-light); margin-top: 0.5rem; line-height: 1.6; }
+  .letter-placeholder .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+  /* LIGHTBOX */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.93); z-index: 1000; align-items: center; justify-content: center; padding: 2rem; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; object-fit: contain; }
+  .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; color: white; font-size: 2rem; cursor: pointer; background: none; border: none; opacity: 0.7; }
+  .lightbox-close:hover { opacity: 1; }
+  .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--navy); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.88rem; transition: all 0.2s; margin-top: 2rem; }
+  .back-btn:hover { background: var(--teal); color: var(--navy); }
+  footer { background: var(--navy); padding: 2rem 5%; text-align: center; }
+  footer p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+  footer a { color: var(--teal); text-decoration: none; }
+
+  @media (max-width: 600px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Irsath<span>.</span></a>
+  <a href="../index.html" class="nav-back">← Back to Portfolio</a>
+</nav>
+
+<div class="event-hero">
+  <div class="event-hero-inner">
+    <a href="../index.html" class="back-link">← Back to all events</a>
+    <div class="event-tag-row">
+      <span class="etag etag-teal">Past Event</span>
+      <span class="etag etag-teal">NIBM Sri Lanka</span>
+      <span class="etag etag-gold">Industry Oriented</span>
+      <span class="etag etag-blue">In Collaboration with Sysco Labs</span>
+    </div>
+    <h1 class="event-title">Industry Oriented Data Science Workshop</h1>
+    <div class="event-meta-row">
+      <div class="meta-item">📅 <strong>19 & 20 January 2026</strong></div>
+      <div class="meta-item">📍 <strong>NIBM, Colombo, Sri Lanka</strong></div>
+      <div class="meta-item">🎓 <strong>2nd Year Data Science Students</strong></div>
+      <div class="meta-item">👤 <strong>Visiting Lecturer: M.L. Irsath Ali</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="content-section">
+  <div class="content-inner">
+
+    <div class="poster-wrap">
+      <img src="../images/events/nibm-ml-workshop/poster.jpg" alt="NIBM Data Science Workshop Poster" onclick="openLightbox(this.src)">
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-box"><span class="num">~50</span><span class="lbl">Students</span></div>
+      <div class="stat-box"><span class="num">2</span><span class="lbl">Days</span></div>
+      <div class="stat-box"><span class="num">6</span><span class="lbl">Topics Covered</span></div>
+    </div>
+
+    <!-- COLLABORATION -->
+    <div class="collab-badge">
+      <span>🤝</span>
+      <span>Delivered <strong>in collaboration with Sysco Labs Pvt. Ltd.</strong> — bringing real Fortune 500 industry experience into the NIBM classroom</span>
+    </div>
+
+    <h2 class="section-heading">About This Workshop</h2>
+    <div class="divider"></div>
+    <p class="description">
+      A <strong>2-day industry-oriented Data Science workshop</strong> delivered to 2nd year Data Science students at NIBM Sri Lanka — in collaboration with Sysco Labs. The workshop was designed to bridge the gap between academic learning and real-world industry practice, giving students hands-on exposure to production-grade ML workflows used in enterprise environments.
+    </p>
+    <p class="description">
+      Students worked through an <strong>end-to-end Retail Demand Forecasting pipeline</strong> — from data preparation and feature engineering to model building, evaluation, and deployment-ready folder structures — mirroring how ML projects are actually built and shipped in industry.
+    </p>
+
+    <h2 class="section-heading">Topics Covered</h2>
+    <div class="divider"></div>
+    <ul class="highlights">
+      <li><span class="highlight-dot"></span><span><strong>Hands-on end-to-end ML solution</strong> — Retail Demand Forecasting pipeline from scratch</span></li>
+      <li><span class="highlight-dot"></span><span><strong>Production-ready folder structure</strong> — how real ML projects are organised in industry</span></li>
+      <li><span class="highlight-dot"></span><span><strong>Feature optimised ADS Testing</strong> — feature engineering and selection best practices</span></li>
+      <li><span class="highlight-dot"></span><span><strong>Git & Model Monitoring</strong> — version control and production monitoring for ML systems</span></li>
+      <li><span class="highlight-dot"></span><span><strong>CV & Interview Preparation</strong> — how to position yourself for data science roles in industry</span></li>
+      <li><span class="highlight-dot"></span><span>Live coding and Q&A sessions with real industry practitioner</span></li>
+    </ul>
+
+    <a href="../index.html" class="back-btn">← Back to Portfolio</a>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery-section">
+  <div class="gallery-inner">
+    <h2 class="section-heading">Workshop Gallery</h2>
+    <div class="divider"></div>
+    <div class="photo-grid">
+      <img src="../images/events/nibm-ml-workshop/photo1.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo2.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo3.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo4.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo5.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo6.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo7.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo8.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo9.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo10.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo11.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo12.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo13.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo14.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo15.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo16.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+      <img src="../images/events/nibm-ml-workshop/photo17.jpg" alt="Workshop" onclick="openLightbox(this.src)">
+    </div>
+  </div>
+</div>
+
+<!-- APPRECIATION — placeholder until letter arrives -->
+<div class="appreciation-section">
+  <div class="appreciation-inner">
+    <h2 class="section-heading">Appreciation & Recognition</h2>
+    <div class="divider"></div>
+    <div class="letter-placeholder">
+      <div class="icon">📜</div>
+      <p><strong>Appreciation letter from NIBM is on the way.</strong><br>Once received, it will be displayed here.</p>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<footer><p>© M.L. Irsath Ali · <a href="../index.html">irsath.nexai.lk</a></p></footer>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>
