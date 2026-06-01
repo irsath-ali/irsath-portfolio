@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVENT TITLE | Irsath Ali</title>
+<!-- COPY THIS FILE, RENAME IT, AND FILL IN THE SECTIONS MARKED WITH [EDIT] -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1C33; --teal: #00C9A7; --teal-dim: #009E84;
+    --gold: #F5A623; --white: #FFFFFF; --off-white: #F4F6F9;
+    --text-main: #1A2B42; --text-muted: #556070; --text-light: #8A96A3;
+    --border: rgba(0,0,0,0.08); --card-shadow: 0 4px 24px rgba(11,28,51,0.08);
+    --card-hover: 0 8px 40px rgba(11,28,51,0.14);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text-main); line-height: 1.6; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(11,28,51,0.97); backdrop-filter: blur(12px); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); text-decoration: none; }
+  .nav-logo span { color: var(--teal); }
+  .nav-back { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .nav-back:hover { color: var(--teal); }
+  .event-hero { background: var(--navy); padding: 120px 5% 60px; position: relative; overflow: hidden; }
+  .event-hero::before { content: ''; position: absolute; top: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,201,167,0.07) 0%, transparent 70%); }
+  .event-hero-inner { max-width: 900px; margin: 0 auto; }
+  .back-link { display: inline-flex; align-items: center; gap: 0.4rem; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.82rem; margin-bottom: 1.5rem; transition: color 0.2s; }
+  .back-link:hover { color: var(--teal); }
+  .event-tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+  .etag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.25rem 0.7rem; border-radius: 4px; }
+  .etag-teal { background: rgba(0,201,167,0.12); color: var(--teal); }
+  .etag-gold { background: rgba(245,166,35,0.12); color: var(--gold); }
+  .event-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,4vw,3rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 1rem; }
+  .event-meta-row { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; }
+  .meta-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+  .meta-item strong { color: rgba(255,255,255,0.8); }
+  .content-section { padding: 60px 5%; }
+  .content-inner { max-width: 900px; margin: 0 auto; }
+  .poster-wrap { margin-bottom: 3rem; }
+  .poster-wrap img { width: 100%; max-width: 500px; border-radius: 16px; box-shadow: var(--card-hover); display: block; }
+  .section-heading { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.75rem; }
+  .divider { width: 36px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 1.5rem; }
+  .description { font-size: 1rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 2rem; }
+  .description strong { color: var(--text-main); }
+  .highlights { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
+  .highlights li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.92rem; color: var(--text-muted); }
+  .highlight-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); margin-top: 0.45rem; flex-shrink: 0; }
+  .gallery-section { background: var(--off-white); padding: 60px 5%; }
+  .gallery-inner { max-width: 900px; margin: 0 auto; }
+  .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .photo-grid img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; box-shadow: var(--card-shadow); cursor: pointer; transition: all 0.3s; }
+  .photo-grid img:hover { transform: scale(1.02); box-shadow: var(--card-hover); }
+  .appreciation-section { padding: 60px 5%; }
+  .letter-wrap { max-width: 600px; }
+  .letter-wrap img { width: 100%; border-radius: 12px; box-shadow: var(--card-hover); cursor: pointer; }
+  .letter-caption { font-size: 0.82rem; color: var(--text-light); margin-top: 0.75rem; }
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.93); z-index: 1000; align-items: center; justify-content: center; padding: 2rem; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; object-fit: contain; }
+  .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; color: white; font-size: 2rem; cursor: pointer; background: none; border: none; opacity: 0.7; }
+  .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--navy); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.88rem; transition: all 0.2s; margin-top: 2rem; }
+  .back-btn:hover { background: var(--teal); color: var(--navy); }
+  footer { background: var(--navy); padding: 2rem 5%; text-align: center; }
+  footer p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+  footer a { color: var(--teal); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Irsath<span>.</span></a>
+  <a href="../index.html" class="nav-back">← Back to Portfolio</a>
+</nav>
+
+<div class="event-hero">
+  <div class="event-hero-inner">
+    <a href="../index.html" class="back-link">← Back to all events</a>
+    <div class="event-tag-row">
+      <span class="etag etag-teal">Past Event</span>
+      <span class="etag etag-teal">[EDIT: Institution Name]</span>
+      <span class="etag etag-gold">[EDIT: Faculty / Department]</span>
+    </div>
+    <h1 class="event-title">[EDIT: Full Event Title]</h1>
+    <div class="event-meta-row">
+      <div class="meta-item">📅 <strong>[EDIT: Date]</strong></div>
+      <div class="meta-item">📍 <strong>[EDIT: Location]</strong></div>
+      <div class="meta-item">🎓 <strong>[EDIT: Audience e.g. Undergraduate Students]</strong></div>
+      <div class="meta-item">👤 <strong>Resource Person: M.L. Irsath Ali</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="content-section">
+  <div class="content-inner">
+
+    <!-- POSTER — replace image filename -->
+    <div class="poster-wrap">
+      <img src="../images/events/[EDIT-FOLDER]/poster.jpg" alt="Event Poster" onclick="openLightbox(this.src)">
+    </div>
+
+    <h2 class="section-heading">About This Event</h2>
+    <div class="divider"></div>
+    <p class="description">[EDIT: 2-3 sentences describing the event, who invited you, what it was about]</p>
+
+    <h2 class="section-heading">Session Highlights</h2>
+    <div class="divider"></div>
+    <ul class="highlights">
+      <li><span class="highlight-dot"></span><span>[EDIT: Highlight 1]</span></li>
+      <li><span class="highlight-dot"></span><span>[EDIT: Highlight 2]</span></li>
+      <li><span class="highlight-dot"></span><span>[EDIT: Highlight 3]</span></li>
+      <li><span class="highlight-dot"></span><span>[EDIT: Highlight 4]</span></li>
+    </ul>
+
+    <a href="../index.html" class="back-btn">← Back to Portfolio</a>
+  </div>
+</div>
+
+<!-- GALLERY — add/remove img tags as needed -->
+<div class="gallery-section">
+  <div class="gallery-inner">
+    <h2 class="section-heading">Workshop Gallery</h2>
+    <div class="divider"></div>
+    <div class="photo-grid">
+      <img src="../images/events/[EDIT-FOLDER]/photo1.jpg" onclick="openLightbox(this.src)">
+      <img src="../images/events/[EDIT-FOLDER]/photo2.jpg" onclick="openLightbox(this.src)">
+      <img src="../images/events/[EDIT-FOLDER]/photo3.jpg" onclick="openLightbox(this.src)">
+      <!-- Add more photos by copying an img line above -->
+    </div>
+  </div>
+</div>
+
+<!-- APPRECIATION LETTER — remove this section if no letter -->
+<div class="appreciation-section">
+  <div class="content-inner">
+    <h2 class="section-heading">Appreciation Letter</h2>
+    <div class="divider"></div>
+    <div class="letter-wrap">
+      <img src="../images/events/[EDIT-FOLDER]/letter.jpg" alt="Appreciation Letter" onclick="openLightbox(this.src)">
+      <p class="letter-caption">[EDIT: Who signed it, their title, institution, date]</p>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<footer><p>© M.L. Irsath Ali · <a href="../index.html">irsath.nexai.lk</a></p></footer>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>
