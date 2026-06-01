@@ -74,21 +74,20 @@
 
   /* CTA STRIP */
   .cta-strip{background:var(--navy-light);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 6%}
-  .cta-strip-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-  .cta-item{display:flex;align-items:center;gap:1rem;padding:1.5rem 1.75rem;text-decoration:none;transition:all 0.2s;position:relative;border-right:1px solid rgba(255,255,255,0.06)}
-  .cta-item:last-child{border-right:none}
-  .cta-item:hover{background:rgba(255,255,255,0.04)}
-  .cta-item:hover .cta-arrow{transform:translateX(3px)}
-  .cta-icon-wrap{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+  .cta-strip-inner{max-width:1060px;margin:0 auto;display:flex;flex-direction:column}
+  .cta-item{display:flex;align-items:center;gap:1rem;padding:1.1rem 0;text-decoration:none;transition:all 0.2s;border-bottom:1px solid rgba(255,255,255,0.05)}
+  .cta-item:last-child{border-bottom:none}
+  .cta-item:hover .cta-arrow{transform:translateX(4px);color:var(--teal)}
+  .cta-item:hover .cta-title{color:var(--teal)}
+  .cta-icon-wrap{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
   .cta-yt{background:rgba(255,0,0,0.1)}
   .cta-nx{background:rgba(0,201,167,0.1)}
   .cta-gh{background:rgba(255,255,255,0.07)}
   .cta-text{flex:1}
-  .cta-label{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.2rem}
-  .cta-title{font-size:0.92rem;font-weight:600;color:var(--white);line-height:1.3}
-  .cta-sub{font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.1rem}
-  .cta-arrow{font-size:0.9rem;color:rgba(255,255,255,0.25);transition:transform 0.2s;flex-shrink:0}
-  @media(max-width:768px){.cta-strip-inner{grid-template-columns:1fr}.cta-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.06)}.cta-item:last-child{border-bottom:none}}
+  .cta-label{font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:0.15rem}
+  .cta-title{font-size:0.9rem;font-weight:600;color:var(--white);line-height:1.3;transition:color 0.2s}
+  .cta-sub{font-size:0.73rem;color:rgba(255,255,255,0.38);margin-top:0.08rem}
+  .cta-arrow{font-size:0.85rem;color:rgba(255,255,255,0.2);transition:all 0.2s;flex-shrink:0}
 
   /* ABOUT */
   #about{background:var(--off-white)}
